@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordering System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .image-card {
+            transition: transform 0.3s ease-in-out;
+        }
+        .image-card:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex flex-col items-center justify-center">
+        <h1 class="text-3xl font-bold mb-8">음료 주문 시스템</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+            <a href='/category' class="max-w-sm rounded overflow-hidden shadow-lg bg-white image-card" data-message="매장">
+                <img class="w-full" src="https://source.unsplash.com/featured/?cafe,interior" alt="Cafe Interior">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">주문: 매장</div>
+                    <p class="text-gray-700 text-base">
+                        Click the image to select in-store option.
+                    </p>
+                </div>
+            </a>
+            <a href='/category' class="max-w-sm rounded overflow-hidden shadow-lg bg-white image-card" data-message="테이크아웃">
+                <img class="w-full" src="https://source.unsplash.com/featured/?street,cafe" alt="Street View">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">주문: 테이크아웃</div>
+                    <p class="text-gray-700 text-base">
+                        Click the image to select takeout option.
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.image-card').forEach(card => {
+            card.addEventListener('click', function(event) {
+                const message = this.getAttribute('data-message');
+                alert(message + '으로 이동합니다.');
+            });
+        });
+    </script>
+</body>
+</html>
